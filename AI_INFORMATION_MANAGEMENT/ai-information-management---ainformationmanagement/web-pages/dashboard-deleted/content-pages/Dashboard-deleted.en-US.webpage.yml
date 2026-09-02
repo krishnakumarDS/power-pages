@@ -1,16 +1,18 @@
-adx_displayorder: 7
+adx_displayorder: 2
 adx_enablerating: false
 adx_enabletracking: false
-adx_excludefromsearch: false
+adx_excludefromsearch: true
 adx_hiddenfromsitemap: true
 adx_isroot: false
-adx_name: Dashboard
+adx_name: Dashboard-deleted
 adx_pagetemplateid: 843d8a2e-1dba-4fdd-a08c-207ffd0d0fb8
-adx_parentpageid: faee1425-4ab4-4a70-9162-3ad9ee3dd6a8
-adx_partialurl: Dashboard
+adx_parentpageid: 
+adx_partialurl: dashboard-deleted
 adx_publishingstateid: 6b09ae6f-fa3f-4c7b-b3cd-92bfdd982032
-adx_rootwebpageid: 83c4bdb6-bff8-8d01-f708-25036fc39302
+adx_rootwebpageid: a4c7a047-de7a-41be-a91c-2283626020de
 adx_sharedpageconfiguration: false
 adx_title: Dashboard
-adx_webpageid: e81e131d-4958-67bd-ee38-7eb02c9dbac8
+adx_webpageid: 22ab3f66-0f82-4f29-9651-cf1f00737894
 adx_webpagelanguageid: 7afbdbb1-20b3-42a8-93e8-576d8d54d2c4
+statecode: 1
+statuscode: 2

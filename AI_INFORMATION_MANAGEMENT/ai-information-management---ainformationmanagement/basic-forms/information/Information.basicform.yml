@@ -1,0 +1,53 @@
+adx_appendquerystring: false
+adx_associatecurrentportaluser: false
+adx_attachfile: false
+adx_attachfileallowmultiple: false
+adx_attachfilelabel: >-
+  [
+    {
+      "LCID": 1033,
+      "Value": ""
+    }
+  ]
+adx_attachfilemaxsize: 
+adx_attachfilerequired: false
+adx_attachfilerestrictaccept: false
+adx_autogeneratesteps: false
+adx_captcharequired: false
+adx_entityformid: 84265f15-a5a6-f111-aaad-7ced8dab9eb4
+adx_entityname: new_ai_information
+adx_entitypermissionsenabled: true
+adx_entitysourcetype: 0
+adx_forceallfieldsrequired: false
+adx_formname: Information
+adx_geolocation_displaymap: false
+adx_geolocation_enabled: false
+adx_geolocation_maptype: 756150000
+adx_hideformonsuccess: true
+adx_mode: 100000000
+adx_name: Information
+adx_onsuccess: 756150000
+adx_populatereferenceentitylookupfield: false
+adx_portaluserlookupattributeisactivityparty: false
+adx_recommendedfieldsrequired: false
+adx_recordidquerystringparametername: 
+adx_recordsourceallowcreateonnull: false
+adx_redirecturl: 
+adx_redirecturlappendentityidquerystring: false
+adx_redirectwebpage: 
+adx_referenceentityshowreadonlyform: false
+adx_referencequerystringisprimarykey: true
+adx_renderwebresourcesinline: false
+adx_setentityreference: false
+adx_showcaptchaforauthenticatedusers: false
+adx_showownerfields: false
+adx_showunsupportedfields: false
+adx_successmessage: >-
+  [
+    {
+      "LCID": 1033,
+      "Value": ""
+    }
+  ]
+adx_tooltipenabled: false
+adx_validationsummarylinksenabled: true

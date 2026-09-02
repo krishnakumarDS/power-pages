@@ -1,13 +1,17 @@
-adx_append: false
-adx_appendto: false
+adx_accountrelationship: 
+adx_append: true
+adx_appendto: true
+adx_contactrelationship: 
 adx_create: true
-adx_delete: false
+adx_delete: true
 adx_entitylogicalname: new_ai_information
 adx_entityname: AI Information - Public
 adx_entitypermission_webrole:
 - 649d236c-b5f6-4748-8ab3-45faa3b97220
 - ac52a4bf-0c10-453a-b7b3-4d30ff5a8d20
 adx_entitypermissionid: bda1861a-86a7-4850-98d8-0779e8470f49
+adx_parententitypermission: 
+adx_parentrelationship: 
 adx_read: true
 adx_scope: 756150000
-adx_write: false
+adx_write: true

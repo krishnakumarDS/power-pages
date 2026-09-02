@@ -1,3 +1,13 @@
+- adx_displayimageonly: false
+  adx_displayorder: 7
+  adx_displaypagechildlinks: false
+  adx_name: Dashboard
+  adx_openinnewwindow: false
+  adx_pageid: 83c4bdb6-bff8-8d01-f708-25036fc39302
+  adx_publishingstateid: 6b09ae6f-fa3f-4c7b-b3cd-92bfdd982032
+  adx_robotsfollowlink: true
+  adx_weblinkid: 53fc3a41-f3dc-1b7c-2a0d-4a17d88bdeb3
+  adx_weblinksetid: 55553513-7b7b-4a07-b430-7d0b04608e50
 - adx_disablepagevalidation: false
   adx_displayimageonly: false
   adx_displayorder: 1
@@ -8,4 +18,14 @@
   adx_publishingstateid: 6b09ae6f-fa3f-4c7b-b3cd-92bfdd982032
   adx_robotsfollowlink: true
   adx_weblinkid: 91345bdd-8fec-47ea-a629-fac6e87e2600
+  adx_weblinksetid: 55553513-7b7b-4a07-b430-7d0b04608e50
+- adx_displayimageonly: false
+  adx_displayorder: 6
+  adx_displaypagechildlinks: false
+  adx_name: New Information
+  adx_openinnewwindow: false
+  adx_pageid: 67826615-1149-d723-de73-cc12aaf0f62b
+  adx_publishingstateid: 6b09ae6f-fa3f-4c7b-b3cd-92bfdd982032
+  adx_robotsfollowlink: true
+  adx_weblinkid: ab6f2ad7-c322-7aff-7bb7-546c517cb80d
   adx_weblinksetid: 55553513-7b7b-4a07-b430-7d0b04608e50

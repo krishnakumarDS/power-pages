@@ -1,0 +1,18 @@
+<div class="dewa-app-page" style="max-width: 720px;">
+  <div class="dewa-page-header">
+    <div>
+      <h1>Submit New Information</h1>
+      <p>Provide details about the AI-related information you want to submit.</p>
+    </div>
+  </div>
+  <div id="dewa-alert-slot"></div>
+  <div class="card" style="padding: 1.75rem;">
+    <div class="mb-3"><label class="dewa-field-label">Title</label><input type="text" id="dewa-new-title" placeholder="e.g. AI Model Usage Policy — Customer Chatbot" class="form-control" /></div>
+    <div class="mb-3"><label class="dewa-field-label">Category</label><input type="text" id="dewa-new-category" placeholder="e.g. Policy, Data Governance, Risk Assessment" class="form-control" /></div>
+    <div class="mb-3"><label class="dewa-field-label">Description</label><textarea id="dewa-new-description" rows="6" placeholder="Describe the AI information being submitted, its purpose and scope." class="form-control"></textarea></div>
+    <div style="display: flex; justify-content: flex-end; gap: 0.75rem;"><a href="/information" class="btn btn-outline-primary">Cancel</a><button type="button" id="dewa-new-submit" class="btn btn-dewa-primary">Submit</button></div>
+  </div>
+</div>
+<div class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
+  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"><div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px;">{% entityform name: 'Information' %}</div></div>
+</div>
