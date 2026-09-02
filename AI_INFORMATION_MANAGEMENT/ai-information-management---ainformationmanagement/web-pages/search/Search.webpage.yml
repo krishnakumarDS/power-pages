@@ -1,0 +1,12 @@
+adx_enablerating: false
+adx_enabletracking: false
+adx_excludefromsearch: false
+adx_hiddenfromsitemap: true
+adx_isroot: true
+adx_name: Search
+adx_pagetemplateid: 5a496975-2458-4ab8-8e80-4c531ba7586f
+adx_parentpageid: faee1425-4ab4-4a70-9162-3ad9ee3dd6a8
+adx_partialurl: search
+adx_publishingstateid: 6b09ae6f-fa3f-4c7b-b3cd-92bfdd982032
+adx_sharedpageconfiguration: false
+adx_webpageid: 693bb02a-78de-4783-8604-1fdf872e44a9

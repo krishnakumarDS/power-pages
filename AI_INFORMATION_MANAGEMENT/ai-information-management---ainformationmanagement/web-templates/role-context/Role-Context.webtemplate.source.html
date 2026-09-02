@@ -1,0 +1,46 @@
+{% comment %}
+  Role Context
+  Resolves the signed-in portal user's app identity by matching their email
+  against the Data_Signin (new_data_signin) table. Include this at the top of
+  any protected page before branching content by role.
+
+  Exposes (Liquid variables, shared with the including page):
+    dewa_authenticated  - true if a portal user is signed in
+    dewa_signin_found    - true if their email matched a Data_Signin row
+    dewa_active          - true if that row's new_active equals "Active"
+    dewa_role            - "Administrator" | "Reviewer" | "Requestor" | ""
+    dewa_display_name    - the Data_Signin row's new_name
+{% endcomment %}
+{% assign dewa_authenticated = false %}
+{% assign dewa_signin_found = false %}
+{% assign dewa_active = false %}
+{% assign dewa_role = "" %}
+{% assign dewa_display_name = "" %}
+
+{% if user %}
+  {% assign dewa_authenticated = true %}
+  {% fetchxml dewa_signin_query %}
+  <fetch>
+    <entity name="new_data_signin">
+      <attribute name="new_name" />
+      <attribute name="new_email" />
+      <attribute name="new_role" />
+      <attribute name="new_active" />
+      <filter>
+        <condition attribute="new_email" operator="eq" value="{{ user.emailaddress1 }}" />
+      </filter>
+      <order attribute="createdon" descending="true" />
+    </entity>
+  </fetch>
+  {% endfetchxml %}
+
+  {% assign dewa_signin_record = dewa_signin_query.results.entities | first %}
+  {% if dewa_signin_record %}
+    {% assign dewa_signin_found = true %}
+    {% assign dewa_display_name = dewa_signin_record.new_name %}
+    {% assign dewa_role = dewa_signin_record.new_role %}
+    {% if dewa_signin_record.new_active == "Active" %}
+      {% assign dewa_active = true %}
+    {% endif %}
+  {% endif %}
+{% endif %}
