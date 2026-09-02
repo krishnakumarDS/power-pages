@@ -40,8 +40,7 @@
       new_title: title,
       new_category: category,
       new_description: description,
-      new_status: 100000000,
-      new_requesterbyname: window.DEWA_EMAIL || ""
+      new_status: 100000000
     };
     var $btn = $("#dewa-new-submit").prop("disabled", true).text("Submitting...");
     webapi.safeAjax({ type: "POST", url: "/_api/new_ai_informations", contentType: "application/json", data: JSON.stringify(payload) })
@@ -50,7 +49,7 @@
       })
       .fail(function (xhr) {
         showAlert("error", "Couldn't submit this record. " + (xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error.message : ""));
-        $btn.prop("disabled", false).text("Submit for Review");
+        $btn.prop("disabled", false).text("Submit");
       });
   }
 

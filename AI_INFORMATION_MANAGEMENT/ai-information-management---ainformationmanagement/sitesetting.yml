@@ -93,6 +93,10 @@
   adx_name: HTTP/SameSite/Default
   adx_sitesettingid: 768a5602-2740-4b57-b59e-97114593b739
   adx_value: Lax
+- adx_description: Columns exposed through the portals Web API for the AI_Information table.
+  adx_name: Webapi/new_ai_information/fields
+  adx_sitesettingid: 774b0841-48c5-4519-a619-36a3f144ea92
+  adx_value: new_title,new_category,new_description,new_status
 - adx_description: >-
     A collection of search logical name filter options. Defining a value here will add dropdown filter options to site-wide search.
 
@@ -115,6 +119,10 @@
   adx_name: CustomerSupport/DisplayAllUserActivitiesOnTimeline
   adx_sitesettingid: 96d35df3-757c-49f7-8dfe-b555c6babc5e
   adx_value: false
+- adx_description: Enables the portals Web API for the AI_Information table.
+  adx_name: Webapi/new_ai_information/enabled
+  adx_sitesettingid: a2662077-58fa-42c7-9ac8-b3677405b921
+  adx_value: true
 - adx_name: Authentication/OpenAuth/LinkedIn/ConsumerKey
   adx_sitesettingid: a58559ee-47d3-466c-9151-0dfe0507415f
 - adx_description: Site setting that controls the depth of the webpage hierarchy that’s cloned in a newly-added supported language. Web link sets and content snippets are cloned in the newly-added language when webpages are cloned.
@@ -167,19 +175,3 @@
   adx_name: Authentication/LoginTrackingEnabled
   adx_sitesettingid: ffcb1bb0-4135-4539-926d-16a5248274a8
   adx_value: False
-- adx_description: Enables the portals Web API for the Data_Signin table.
-  adx_name: Webapi/new_data_signin/enabled
-  adx_sitesettingid: 911adfea-8300-49d0-93b8-a7401137f770
-  adx_value: true
-- adx_description: Columns exposed through the portals Web API for the Data_Signin table.
-  adx_name: Webapi/new_data_signin/fields
-  adx_sitesettingid: 876d039f-da04-4eee-9e01-bdcdd963812e
-  adx_value: new_name,new_email,new_role,new_active
-- adx_description: Enables the portals Web API for the AI_Information table.
-  adx_name: Webapi/new_ai_information/enabled
-  adx_sitesettingid: a2662077-58fa-42c7-9ac8-b3677405b921
-  adx_value: true
-- adx_description: Columns exposed through the portals Web API for the AI_Information table.
-  adx_name: Webapi/new_ai_information/fields
-  adx_sitesettingid: 774b0841-48c5-4519-a619-36a3f144ea92
-  adx_value: new_title,new_category,new_description,new_status,new_requesterbyname,new_reviewerbyemail,new_reviewcomments

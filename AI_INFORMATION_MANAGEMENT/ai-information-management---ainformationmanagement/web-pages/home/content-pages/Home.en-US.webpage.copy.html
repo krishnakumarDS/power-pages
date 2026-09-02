@@ -1,4 +1,3 @@
-{% assign homeurl = website.adx_partialurl %}
 <div class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
   <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
     <div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 300px;">
@@ -8,27 +7,23 @@
         </div>
         <h1>Manage AI information with clarity and control</h1>
         <p>
-          A single platform for submitting, reviewing and tracking AI-related information —
+          A single, open platform for submitting and tracking AI-related information —
           policies, model usage guidelines, risk assessments and training material — across DEWA.
         </p>
-        {% if user %}
-        <a class="btn btn-dewa-cta" href="/dashboard">Go to Dashboard</a>
-        {% else %}
-        <a class="btn btn-dewa-cta" href="{% if homeurl %}/{{ homeurl }}{% endif %}{{ website.sign_in_url_substitution }}">Get Started</a>
-        {% endif %}
+        <a class="btn btn-dewa-cta" href="/dashboard">Get Started</a>
 
         <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1.25rem;">
           <div class="dewa-hero-feature" style="flex:1;min-width:220px;">
-            <h3 style="font-size:1rem;margin-top:0;color:#fff;">Structured Review Workflow</h3>
-            <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.875rem;">Requesters submit AI information records; reviewers approve, progress or close them.</p>
+            <h3 style="font-size:1rem;margin-top:0;color:#fff;">Simple Dashboard</h3>
+            <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.875rem;">See at a glance how many records are open, in progress or closed.</p>
           </div>
           <div class="dewa-hero-feature" style="flex:1;min-width:220px;">
-            <h3 style="font-size:1rem;margin-top:0;color:#fff;">Governed &amp; Auditable</h3>
-            <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.875rem;">Every submission keeps a history of status changes, reviewers and comments.</p>
+            <h3 style="font-size:1rem;margin-top:0;color:#fff;">Quick Submission</h3>
+            <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.875rem;">Submit a new AI information record in seconds — no sign-in required.</p>
           </div>
           <div class="dewa-hero-feature" style="flex:1;min-width:220px;">
-            <h3 style="font-size:1rem;margin-top:0;color:#fff;">Role-based Access</h3>
-            <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.875rem;">Purpose-built dashboards for Administrators, Reviewers and Requesters.</p>
+            <h3 style="font-size:1rem;margin-top:0;color:#fff;">Open List</h3>
+            <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.875rem;">Browse every submitted record in one searchable list.</p>
           </div>
         </div>
       </div>
