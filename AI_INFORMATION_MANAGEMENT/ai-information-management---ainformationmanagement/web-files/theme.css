@@ -2260,3 +2260,180 @@ body {
   justify-content: flex-end;
   gap: 0.75rem;
 }
+
+/* ==========================================================================
+   Site chrome — Header / Footer / nav, brought in line with the DEWA system
+   ========================================================================== */
+.navbar.static-top {
+  background: var(--dewa-background) !important;
+  border-bottom: 1px solid var(--dewa-divider);
+  box-shadow: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.navbar.static-top .navbar-brand,
+.navbar.static-top .custom-sitetitle {
+  color: var(--dewa-primary-dark) !important;
+  font-weight: 700;
+}
+.navbar.static-top .nav-link {
+  color: var(--dewa-text-primary) !important;
+  font-weight: 500;
+}
+.navbar.static-top .nav-link:hover,
+.navbar.static-top .nav-link:focus {
+  color: var(--dewa-primary) !important;
+}
+.navbar.static-top .nav-item.active > .nav-link,
+.navbar.static-top .nav-link.active {
+  color: var(--dewa-primary) !important;
+}
+.navbar.static-top .dropdown-menu {
+  border: 1px solid var(--dewa-border);
+  border-radius: var(--dewa-radius-lg);
+  box-shadow: var(--dewa-shadow-menu);
+}
+.navbar.static-top .dropdown-item:hover,
+.navbar.static-top .dropdown-item:focus {
+  background: var(--dewa-active-bg);
+  color: var(--dewa-primary-dark);
+}
+.navbar-toggler-icon {
+  filter: none;
+}
+
+footer,
+.footer {
+  background: var(--dewa-background);
+  border-top: 1px solid var(--dewa-divider);
+  color: var(--dewa-text-secondary);
+  font-size: 0.8125rem;
+  padding: 1.25rem 0;
+}
+footer a,
+.footer a {
+  color: var(--dewa-text-secondary);
+}
+footer a:hover,
+.footer a:hover {
+  color: var(--dewa-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--dewa-font);
+  color: var(--dewa-text-primary);
+}
+
+/* ==========================================================================
+   Native Power Pages List (entitylist) — styled to match the DEWA table/card
+   ========================================================================== */
+.entitylist {
+  background: var(--dewa-background);
+  border: 1px solid var(--dewa-border);
+  border-radius: var(--dewa-radius-xl);
+  box-shadow: var(--dewa-shadow-card);
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+.entitylist .view-header,
+.entitylist h2,
+.entitylist h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--dewa-text-primary);
+}
+.entitylist .form-control,
+.entitylist input[type="search"],
+.entitylist input[type="text"] {
+  border-radius: var(--dewa-radius-lg);
+  border: 1px solid var(--dewa-border);
+}
+.entitylist .form-control:focus {
+  border-color: var(--dewa-primary);
+  box-shadow: 0 0 0 2px var(--dewa-active-bg);
+}
+.entitylist table.table,
+.entitylist .view-grid table {
+  margin-bottom: 0;
+}
+.entitylist table.table thead th,
+.entitylist .view-grid table thead th {
+  background: var(--dewa-surface);
+  color: var(--dewa-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--dewa-border);
+  white-space: nowrap;
+}
+.entitylist table.table tbody td,
+.entitylist .view-grid table tbody td {
+  font-size: 0.875rem;
+  color: var(--dewa-text-primary);
+  border-color: var(--dewa-divider);
+  vertical-align: middle;
+}
+.entitylist table.table tbody tr:hover,
+.entitylist .view-grid table tbody tr:hover {
+  background: rgba(0, 117, 96, 0.03);
+}
+.entitylist .pagination > li > a,
+.entitylist .pagination > li > span {
+  color: var(--dewa-primary);
+  border-color: var(--dewa-border);
+}
+.entitylist .pagination > .active > a,
+.entitylist .pagination > .active > span {
+  background: var(--dewa-primary);
+  border-color: var(--dewa-primary);
+  color: #fff;
+}
+.entitylist .btn-primary {
+  background-image: linear-gradient(135deg, var(--dewa-primary-light) 0%, var(--dewa-primary) 100%);
+  border-color: var(--dewa-primary);
+  border-radius: var(--dewa-radius-lg);
+}
+
+/* ==========================================================================
+   Native Power Pages Basic Form (entityform) — DEWA card + field styling
+   ========================================================================== */
+.entityform,
+form.entityform,
+.entityform-wrapper {
+  background: var(--dewa-background);
+  border: 1px solid var(--dewa-border);
+  border-radius: var(--dewa-radius-xl);
+  box-shadow: var(--dewa-shadow-card);
+  padding: 1.75rem;
+  max-width: 720px;
+}
+.entityform .form-group {
+  margin-bottom: 1.25rem;
+}
+.entityform .control-label,
+.entityform label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--dewa-text-primary);
+  margin-bottom: 0.35rem;
+}
+.entityform .form-control {
+  border-radius: var(--dewa-radius-lg);
+  border: 1px solid var(--dewa-border);
+}
+.entityform .form-control:focus {
+  border-color: var(--dewa-primary);
+  box-shadow: 0 0 0 2px var(--dewa-active-bg);
+}
+.entityform .required .control-label:after {
+  content: " *";
+  color: var(--dewa-error);
+}
+.entityform .btn-primary,
+.entityform input[type="submit"] {
+  background-image: linear-gradient(135deg, var(--dewa-primary-light) 0%, var(--dewa-primary) 100%);
+  border-color: var(--dewa-primary);
+  border-radius: var(--dewa-radius-lg);
+  font-weight: 600;
+  padding: 0.6rem 1.75rem;
+}
