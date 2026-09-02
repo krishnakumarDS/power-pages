@@ -1,0 +1,14 @@
+adx_append: false
+adx_appendto: false
+adx_create: true
+adx_delete: true
+adx_entitylogicalname: new_ai_information
+adx_entityname: AI Information - Reviewer and Requestor
+adx_entitypermission_webrole:
+- 5e6caee8-2a6a-4221-8104-28f5801239d4
+- 796e6069-9515-4380-a1e2-07f4a12715c7
+- 3e887f56-d405-4acb-a6fd-b3bd7bb66ee5
+adx_entitypermissionid: bda1861a-86a7-4850-98d8-0779e8470f49
+adx_read: true
+adx_scope: 756150000
+adx_write: true
