@@ -2430,10 +2430,82 @@ form.entityform,
   color: var(--dewa-error);
 }
 .entityform .btn-primary,
-.entityform input[type="submit"] {
-  background-image: linear-gradient(135deg, var(--dewa-primary-light) 0%, var(--dewa-primary) 100%);
-  border-color: var(--dewa-primary);
-  border-radius: var(--dewa-radius-lg);
-  font-weight: 600;
-  padding: 0.6rem 1.75rem;
+.entityform input[type="submit"],
+.entitylist .btn-primary,
+.entitylist .btn-primary:visited {
+  background-color: var(--dewa-primary) !important;
+  background-image: linear-gradient(135deg, var(--dewa-primary-light) 0%, var(--dewa-primary) 100%) !important;
+  border-color: var(--dewa-primary) !important;
+  border-radius: var(--dewa-radius-lg) !important;
+  font-weight: 600 !important;
+  padding: 0.6rem 1.75rem !important;
+  box-shadow: none !important;
 }
+.entityform .btn-primary:hover,
+.entitylist .btn-primary:hover {
+  background-image: linear-gradient(135deg, var(--dewa-primary) 0%, var(--dewa-primary-dark) 100%) !important;
+}
+
+/* Field/column visibility toggled by page JS (hides stale review-workflow
+   columns like User/User1/Review Comments left over from the Main Form) */
+.dewa-hidden-field {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Page banner — gradient header used on internal app pages, echoing the
+   Home hero so the whole app reads as one product.
+   ========================================================================== */
+.dewa-page-banner {
+  background-image: linear-gradient(160deg, var(--dewa-primary-dark) 0%, var(--dewa-primary) 45%, var(--dewa-primary-light) 100%);
+  border-radius: var(--dewa-radius-xxl);
+  padding: 2rem 2rem 2.25rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  color: #fff;
+}
+.dewa-page-banner h1 {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+}
+.dewa-page-banner p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-size: 0.9375rem;
+  max-width: 480px;
+}
+.dewa-page-banner .btn-dewa-cta {
+  background: #fff;
+  color: var(--dewa-primary-dark) !important;
+  border: none;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--dewa-radius-lg);
+  white-space: nowrap;
+}
+.dewa-page-banner .btn-dewa-cta:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Status chips injected by page JS on the list/dashboard */
+.dewa-status-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: var(--dewa-radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.dewa-status-chip.status-open { background: var(--dewa-warning-surface); color: var(--dewa-warning); }
+.dewa-status-chip.status-inprogress { background: var(--dewa-info-surface); color: var(--dewa-info); }
+.dewa-status-chip.status-closed { background: var(--dewa-success-surface); color: var(--dewa-success); }

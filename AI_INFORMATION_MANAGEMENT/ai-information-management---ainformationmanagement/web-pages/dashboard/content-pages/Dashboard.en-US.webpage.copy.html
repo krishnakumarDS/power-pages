@@ -1,12 +1,10 @@
 <div class="dewa-app-page">
-  <div class="dewa-page-header">
+  <div class="dewa-page-banner">
     <div>
       <h1>Dashboard</h1>
       <p>Browse, search and submit AI information records.</p>
     </div>
-    <div>
-      <a class="btn btn-dewa-primary" href="/New-Information">+ Submit New</a>
-    </div>
+    <a class="btn btn-dewa-cta" href="/New-Information">+ Submit New</a>
   </div>
   {% include 'entity_list' key: 'Active AI_Informations' AISummaryTitle:'AI Insights' isAISummaryExpanded:'true' AISummaryChartTypes:'[1,2,3,4,5]' isAISummaryEnabled:'true' isNLSearchEnabled:'true' %}
 </div>
