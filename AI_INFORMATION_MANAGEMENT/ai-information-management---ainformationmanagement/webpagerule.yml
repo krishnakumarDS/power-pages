@@ -7,3 +7,28 @@
   - 3e887f56-d405-4acb-a6fd-b3bd7bb66ee5
   adx_webpageaccesscontrolruleid: e282c6b5-1530-485b-8d45-649a73acd5fd
   adx_webpageid: faee1425-4ab4-4a70-9162-3ad9ee3dd6a8
+- adx_name: Restrict Read - Dashboard
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - ac52a4bf-0c10-453a-b7b3-4d30ff5a8d20
+  adx_webpageaccesscontrolruleid: 7244657f-d54a-42b2-ae7b-779c71bdfcf4
+  adx_webpageid: a4c7a047-de7a-41be-a91c-2283626020de
+- adx_name: Restrict Read - Users
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - 3e887f56-d405-4acb-a6fd-b3bd7bb66ee5
+  adx_webpageaccesscontrolruleid: 2d0cc38b-5bc6-4718-86c3-cfcbaac091f5
+  adx_webpageid: d7e6bb72-63d1-414e-81f0-b0516ffb7bc0
+- adx_name: Restrict Read - Information
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - 5e6caee8-2a6a-4221-8104-28f5801239d4
+  - 796e6069-9515-4380-a1e2-07f4a12715c7
+  adx_webpageaccesscontrolruleid: f6f7ce6f-3042-435a-ba3a-d2646c378f38
+  adx_webpageid: b72fc6bf-dbb0-4637-abf3-78fcc3827d15
+- adx_name: Restrict Read - Information New
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - 796e6069-9515-4380-a1e2-07f4a12715c7
+  adx_webpageaccesscontrolruleid: 73db76b9-2d5e-4312-9902-68c9d39b534a
+  adx_webpageid: baace560-5f65-4366-b709-d13b2dc2b725

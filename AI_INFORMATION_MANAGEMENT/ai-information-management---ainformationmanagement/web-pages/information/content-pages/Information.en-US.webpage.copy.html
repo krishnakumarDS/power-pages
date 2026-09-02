@@ -1,0 +1,100 @@
+{% include 'Role Context' %}
+{% assign dewa_can_view_info = false %}
+{% if dewa_authenticated and dewa_active %}
+  {% if dewa_role == "Reviewer" or dewa_role == "Requestor" %}
+    {% assign dewa_can_view_info = true %}
+  {% endif %}
+{% endif %}
+<div class="dewa-app-page">
+  {% if dewa_can_view_info %}
+  <div class="dewa-page-header">
+    <div>
+      <h1>{% if dewa_role == "Reviewer" %}Information Review{% else %}My Information{% endif %}</h1>
+      <p>
+        {% if dewa_role == "Reviewer" %}
+        Review AI information records submitted by requesters and record a decision.
+        {% else %}
+        View, edit and track the AI information records you've submitted.
+        {% endif %}
+      </p>
+    </div>
+    {% if dewa_role == "Requestor" %}
+    <div>
+      <a class="btn btn-dewa-primary" href="/information/new">+ Submit New</a>
+    </div>
+    {% endif %}
+  </div>
+
+  <div id="dewa-alert-slot"></div>
+
+  <div class="dewa-table-wrap">
+    <table class="dewa-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Requested By</th>
+          <th>Last Updated</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="dewa-info-tbody">
+        <tr>
+          <td colspan="6" style="text-align:center;padding:2rem;color:var(--dewa-text-secondary);">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dewa-panel-backdrop" id="dewa-panel-backdrop"></div>
+  <div class="dewa-panel" id="dewa-info-panel" style="width:480px;">
+    <div class="dewa-panel-header">
+      <h3 id="dewa-panel-title" style="margin:0;">Record Details</h3>
+      <button type="button" id="dewa-panel-close" aria-label="Close" style="background:none;border:none;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--dewa-text-secondary);">&times;</button>
+    </div>
+    <div class="dewa-panel-body">
+      <input type="hidden" id="dewa-info-id" />
+      <div class="mb-3">
+        <label class="dewa-field-label">Title</label>
+        <input type="text" class="form-control" id="dewa-info-title" />
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Category</label>
+        <input type="text" class="form-control" id="dewa-info-category" />
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Description</label>
+        <textarea class="form-control" id="dewa-info-description" rows="4"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Status</label>
+        <select class="form-select" id="dewa-info-status">
+          <option value="100000000">Open</option>
+          <option value="100000001">In Progress</option>
+          <option value="100000002">Closed</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Review Comment</label>
+        <textarea class="form-control" id="dewa-info-comment" rows="3"></textarea>
+      </div>
+      <div class="mb-3" id="dewa-info-reviewer-row" style="display:none;">
+        <label class="dewa-field-label">Reviewed By</label>
+        <div id="dewa-info-reviewer-value" class="text-muted"></div>
+      </div>
+    </div>
+    <div class="dewa-panel-footer">
+      <button type="button" class="btn btn-outline-primary" id="dewa-panel-cancel">Close</button>
+      <button type="button" class="btn btn-dewa-primary" id="dewa-panel-save">Save</button>
+    </div>
+  </div>
+
+  <script>
+    window.DEWA_ROLE = "{{ dewa_role | escape }}";
+    window.DEWA_EMAIL = "{{ user.emailaddress1 | escape }}";
+  </script>
+  {% else %}
+  <div class="dewa-alert dewa-alert-error">You don't have access to this page.</div>
+  {% endif %}
+</div>

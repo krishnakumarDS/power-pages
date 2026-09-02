@@ -1,0 +1,204 @@
+{% include 'Role Context' %}
+<div class="dewa-app-page">
+  {% unless dewa_authenticated %}
+  <div class="dewa-alert dewa-alert-warning">Please sign in to view your dashboard.</div>
+  {% else %}
+    {% unless dewa_active %}
+    <div class="card" style="padding:2.5rem;text-align:center;max-width:560px;margin:3rem auto;">
+      <h2 style="margin-top:0;">Access Pending</h2>
+      <p class="text-muted">We couldn't find an active account for <strong>{{ user.emailaddress1 }}</strong> in the AI Information Management platform. Please contact your administrator to be added.</p>
+    </div>
+    {% else %}
+    <div class="dewa-page-header">
+      <div>
+        <h1>Welcome, {{ dewa_display_name | split: ' ' | first }}</h1>
+        <p>Here's what's happening with AI information records today.</p>
+      </div>
+    </div>
+
+    {% if dewa_role == "Administrator" %}
+      {% fetchxml dewa_users_total %}
+      <fetch aggregate="true">
+        <entity name="new_data_signin">
+          <attribute name="new_data_signinid" alias="cnt" aggregate="count" />
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_users_active %}
+      <fetch aggregate="true">
+        <entity name="new_data_signin">
+          <attribute name="new_data_signinid" alias="cnt" aggregate="count" />
+          <filter>
+            <condition attribute="new_active" operator="eq" value="Active" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_info_total %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_info_open %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter>
+            <condition attribute="new_status" operator="eq" value="100000000" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% assign u_total = dewa_users_total.results.entities | first %}
+      {% assign u_active = dewa_users_active.results.entities | first %}
+      {% assign i_total = dewa_info_total.results.entities | first %}
+      {% assign i_open = dewa_info_open.results.entities | first %}
+
+      <div class="dewa-kpi-grid">
+        <div class="dewa-kpi-card">
+          <div class="dewa-kpi-label">Total Users</div>
+          <div class="dewa-kpi-value">{{ u_total.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-success">
+          <div class="dewa-kpi-label">Active Users</div>
+          <div class="dewa-kpi-value">{{ u_active.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-info">
+          <div class="dewa-kpi-label">Information Records</div>
+          <div class="dewa-kpi-value">{{ i_total.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-warning">
+          <div class="dewa-kpi-label">Open Records</div>
+          <div class="dewa-kpi-value">{{ i_open.cnt | default: 0 }}</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.5rem;">
+        <h2 style="font-size:1.125rem;margin-top:0;">Administration</h2>
+        <p class="text-muted" style="margin-bottom:1rem;">Create, update and deactivate the users who can access this platform.</p>
+        <a class="btn btn-dewa-primary" href="/users">Manage Users</a>
+      </div>
+
+    {% elsif dewa_role == "Reviewer" %}
+      {% fetchxml dewa_rev_open %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter>
+            <condition attribute="new_status" operator="eq" value="100000000" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_rev_inprogress %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter>
+            <condition attribute="new_status" operator="eq" value="100000001" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_rev_closed %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter>
+            <condition attribute="new_status" operator="eq" value="100000002" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% assign r_open = dewa_rev_open.results.entities | first %}
+      {% assign r_inprogress = dewa_rev_inprogress.results.entities | first %}
+      {% assign r_closed = dewa_rev_closed.results.entities | first %}
+
+      <div class="dewa-kpi-grid">
+        <div class="dewa-kpi-card accent-warning">
+          <div class="dewa-kpi-label">Open</div>
+          <div class="dewa-kpi-value">{{ r_open.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-info">
+          <div class="dewa-kpi-label">In Progress</div>
+          <div class="dewa-kpi-value">{{ r_inprogress.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-success">
+          <div class="dewa-kpi-label">Closed</div>
+          <div class="dewa-kpi-value">{{ r_closed.cnt | default: 0 }}</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.5rem;">
+        <h2 style="font-size:1.125rem;margin-top:0;">Information Review</h2>
+        <p class="text-muted" style="margin-bottom:1rem;">Review AI information records submitted by requesters and record a decision.</p>
+        <a class="btn btn-dewa-primary" href="/information">Go to Information Review</a>
+      </div>
+
+    {% elsif dewa_role == "Requestor" %}
+      {% fetchxml dewa_req_mine %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter>
+            <condition attribute="new_requesterbyname" operator="eq" value="{{ user.emailaddress1 }}" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_req_open %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter type="and">
+            <condition attribute="new_requesterbyname" operator="eq" value="{{ user.emailaddress1 }}" />
+            <condition attribute="new_status" operator="eq" value="100000000" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% fetchxml dewa_req_closed %}
+      <fetch aggregate="true">
+        <entity name="new_ai_information">
+          <attribute name="new_ai_informationid" alias="cnt" aggregate="count" />
+          <filter type="and">
+            <condition attribute="new_requesterbyname" operator="eq" value="{{ user.emailaddress1 }}" />
+            <condition attribute="new_status" operator="eq" value="100000002" />
+          </filter>
+        </entity>
+      </fetch>
+      {% endfetchxml %}
+      {% assign q_mine = dewa_req_mine.results.entities | first %}
+      {% assign q_open = dewa_req_open.results.entities | first %}
+      {% assign q_closed = dewa_req_closed.results.entities | first %}
+
+      <div class="dewa-kpi-grid">
+        <div class="dewa-kpi-card">
+          <div class="dewa-kpi-label">My Submissions</div>
+          <div class="dewa-kpi-value">{{ q_mine.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-warning">
+          <div class="dewa-kpi-label">Open</div>
+          <div class="dewa-kpi-value">{{ q_open.cnt | default: 0 }}</div>
+        </div>
+        <div class="dewa-kpi-card accent-success">
+          <div class="dewa-kpi-label">Closed</div>
+          <div class="dewa-kpi-value">{{ q_closed.cnt | default: 0 }}</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.5rem;">
+        <h2 style="font-size:1.125rem;margin-top:0;">My Information</h2>
+        <p class="text-muted" style="margin-bottom:1rem;">View and manage the AI information records you've submitted, or submit a new one.</p>
+        <a class="btn btn-dewa-primary" href="/information">View My Information</a>
+        <a class="btn btn-dewa-outline" href="/information/new">Submit New</a>
+      </div>
+
+    {% else %}
+      <div class="dewa-alert dewa-alert-error">Your account role could not be determined. Please contact your administrator.</div>
+    {% endif %}
+    {% endunless %}
+  {% endunless %}
+</div>

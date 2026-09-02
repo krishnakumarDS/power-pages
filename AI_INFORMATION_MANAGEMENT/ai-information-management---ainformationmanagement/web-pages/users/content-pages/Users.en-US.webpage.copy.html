@@ -1,0 +1,75 @@
+{% include 'Role Context' %}
+<div class="dewa-app-page">
+  {% if dewa_authenticated and dewa_active and dewa_role == "Administrator" %}
+  <div class="dewa-page-header">
+    <div>
+      <h1>User Management</h1>
+      <p>Create, update and deactivate the users who can access this platform.</p>
+    </div>
+    <div>
+      <button type="button" class="btn btn-dewa-primary" id="dewa-new-user-btn">+ New User</button>
+    </div>
+  </div>
+
+  <div id="dewa-alert-slot"></div>
+
+  <div class="dewa-table-wrap">
+    <table class="dewa-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="dewa-users-tbody">
+        <tr>
+          <td colspan="5" style="text-align:center;padding:2rem;color:var(--dewa-text-secondary);">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dewa-panel-backdrop" id="dewa-panel-backdrop"></div>
+  <div class="dewa-panel" id="dewa-user-panel">
+    <div class="dewa-panel-header">
+      <h3 id="dewa-panel-title" style="margin:0;">New User</h3>
+      <button type="button" id="dewa-panel-close" aria-label="Close" style="background:none;border:none;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--dewa-text-secondary);">&times;</button>
+    </div>
+    <div class="dewa-panel-body">
+      <input type="hidden" id="dewa-user-id" />
+      <div class="mb-3">
+        <label class="dewa-field-label">Full Name</label>
+        <input type="text" class="form-control" id="dewa-user-name" />
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Email</label>
+        <input type="email" class="form-control" id="dewa-user-email" />
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Role</label>
+        <select class="form-select" id="dewa-user-role">
+          <option value="100000000">Administrator</option>
+          <option value="100000001">Requestor</option>
+          <option value="100000002">Reviewer</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="dewa-field-label">Status</label>
+        <select class="form-select" id="dewa-user-active">
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
+    <div class="dewa-panel-footer">
+      <button type="button" class="btn btn-outline-primary" id="dewa-panel-cancel">Cancel</button>
+      <button type="button" class="btn btn-dewa-primary" id="dewa-panel-save">Save</button>
+    </div>
+  </div>
+  {% else %}
+  <div class="dewa-alert dewa-alert-error">You don't have access to this page.</div>
+  {% endif %}
+</div>
